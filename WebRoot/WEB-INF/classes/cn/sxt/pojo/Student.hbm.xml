@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="cn.sxt.pojo">
+	
+	<class name="Student" table="student">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name"/>
+		<property name="age"/>
+		<!-- 多对一 class 对应的是属性对应的类 column 指数据库的列名 -->
+		<many-to-one name="grade" class="Grade" column="gradeId" cascade="update" foreign-key="fk_grade"/>		
+	</class>
+</hibernate-mapping>
